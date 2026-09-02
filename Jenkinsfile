@@ -10,13 +10,17 @@ pipeline{
 
         stage("build"){
             steps{
-                bat 'npm run build'
+                dir('Recipe_Finder'){
+                    bat 'npm install'
+                }
             }
         }
 
         stage("deploy"){
             steps{
-                bat 'npm run dev'
+                dir('Recipe_Finder'){
+                    bat 'npm run dev'
+                }
             }
         }
     }
